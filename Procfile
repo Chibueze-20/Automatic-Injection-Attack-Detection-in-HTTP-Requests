@@ -1,0 +1,1 @@
+web: gunicorn --timeout 1800 app:app

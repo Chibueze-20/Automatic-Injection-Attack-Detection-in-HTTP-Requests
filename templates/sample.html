@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Material Design Bootstrap</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap core CSS -->
+        <link href="../static/MDB-Free/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="../static/MDB-Free/css/mdb.min.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="../static/css/main.css" rel="stylesheet">
+    </head>
+<body>
+    <div style="height: 100vh">
+        <ul class="nav justify-content-center blue lighten-5">
+            <li class="nav-item">
+                <h1>Automatic Injection Attack Detection In HTTP Requests</h1>
+            </li>
+        </ul>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Select dataset</h5>
+                    <div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="csic" class="custom-control-input" id="inline1" name="dataradio">
+                            <label class="custom-control-label" for="inline1">CSIC</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="ecml" class="custom-control-input" id="inline2" name="dataradio">
+                            <label class="custom-control-label" for="inline2">ECML/PKDD</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h5>Select model</h5>
+                    <div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="csiccnn" class="custom-control-input" id="inlinem1" name="modelradio">
+                            <label class="custom-control-label" for="inlinem1">CSIC CNN</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="csicdnn" class="custom-control-input" id="inlinem2" name="modelradio">
+                            <label class="custom-control-label" for="inlinem2">CSIC DNN</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="ecmlcnn" class="custom-control-input" id="inlinem3" name="modelradio">
+                            <label class="custom-control-label" for="inlinem3">ECML CNN</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" value="ecmldnn" class="custom-control-input" id="inlinem4" name="modelradio">
+                            <label class="custom-control-label" for="inlinem4">ECML DNN</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="flex-center col-12">
+                    <button onclick="sample()" class="btn btn-primary">Sample 5 requets</button>
+                </div>
+                <div style="overflow-x: none;overflow-y: auto;" id="list" class="col-8 mt-5 offset-2">
+                    <div class="mx-5 card grey lighten-3 card-body py-3 px-5">
+                        <span class="text-center">http request</span>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-primary">
+                                Original:Benign
+                            </span>
+                            <span class="bg-primary text-white font-weight-bold">
+                                Predicted:Benign
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="../static/MDB-Free/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="../static/MDB-Free/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="../static/MDB-Free/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="../static/MDB-Free/js/mdb.min.js"></script>
+    <script type="text/javascript" src = "../static/js/main.js"></script>
+</body>
+</html>
