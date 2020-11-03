@@ -32,16 +32,16 @@ ecmlcnn_model = load_model(ECML_CNN)
 ecmlcnn_model._make_predict_function()          # Necessary
 
 # DNN trained with ECML/PKDD 2007 dataset
-# ecmldnn_model = load_model(ECML_DNN)
-# ecmldnn_model._make_predict_function()          # Necessary
+ecmldnn_model = load_model(ECML_DNN)
+ecmldnn_model._make_predict_function()          # Necessary
 
 # CNN trained with CSIC 2010 dataset
 csiccnn_model = load_model(CSIC_CNN)
 csiccnn_model._make_predict_function()          # Necessary
 
 #DNN trained with CSIC 2010 dataset
-# csicdnn_model = load_model(CSIC_DNN)
-# csicdnn_model._make_predict_function()          # Necessary
+csicdnn_model = load_model(CSIC_DNN)
+csicdnn_model._make_predict_function()          # Necessary
 
 # load tokenizer object
 tokenizer_file = open('models/tokenizerecml.pickle','rb') 
@@ -54,16 +54,16 @@ def ecmlcnnmodel(minput):
     return ecmlcnn_model.predict(minput)
 
 # prediction from ecml/pkdd trained dnn model
-# def ecmldnnmodel(minput):
-#     return ecmldnn_model.predict(minput)
+def ecmldnnmodel(minput):
+    return ecmldnn_model.predict(minput)
 
 # prediction from csic trained cnn model
 def csiccnnmodel(minput):
     return csiccnn_model.predict(minput)
 
 # prediction from csic trained dnn model
-# def csicdnnmodel(minput):
-#     return csicdnn_model.predict(minput)
+def csicdnnmodel(minput):
+    return csicdnn_model.predict(minput)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -90,25 +90,25 @@ def ecmlcnnpredict():
     response = {"benign":float(benign),"malicious":float(malicious)} #response
     return jsonify(response)
 
-# @app.route('/ecml/dnn/predict',methods=['GET','POST'])
-# def ecmldnnpredict():
-#     if request.method == 'POST':
-#         body = request.get_data()
-#         requestparams = str(body)
-#     elif request.method == 'GET':
-#         query = request.query_string
-#         requestparams = str(query)
-#     else:
-#         return None
-#     requestparams = requestparams[2:len(requestparams)-1]
-#     character_indexes = tokenizer.texts_to_sequences(requestparams) #get character indexes
-#     character_indexes = [char_index for chars in character_indexes for char_index in chars] #flatten char index array to 1d
-#     data = pad_sequences([character_indexes],maxlen=840,padding='post') #pad char indexes to reach length 840
-#     result = ecmldnnmodel(data)#get predictions
-#     benign = result[0][0] #benign probability
-#     malicious = result[0][1] #malicious probability
-#     response = {"benign":float(benign),"malicious":float(malicious)} #response
-#     return jsonify(response)
+@app.route('/ecml/dnn/predict',methods=['GET','POST'])
+def ecmldnnpredict():
+    if request.method == 'POST':
+        body = request.get_data()
+        requestparams = str(body)
+    elif request.method == 'GET':
+        query = request.query_string
+        requestparams = str(query)
+    else:
+        return None
+    requestparams = requestparams[2:len(requestparams)-1]
+    character_indexes = tokenizer.texts_to_sequences(requestparams) #get character indexes
+    character_indexes = [char_index for chars in character_indexes for char_index in chars] #flatten char index array to 1d
+    data = pad_sequences([character_indexes],maxlen=840,padding='post') #pad char indexes to reach length 840
+    result = ecmldnnmodel(data)#get predictions
+    benign = result[0][0] #benign probability
+    malicious = result[0][1] #malicious probability
+    response = {"benign":float(benign),"malicious":float(malicious)} #response
+    return jsonify(response)
 
 @app.route('/csic/cnn/predict',methods=['GET','POST'])
 def csiccnnpredict():
@@ -130,29 +130,29 @@ def csiccnnpredict():
     response = {"benign":float(benign),"malicious":float(malicious)} #response
     return jsonify(response)
 
-# @app.route('/csic/dnn/predict',methods=['GET','POST'])
-# def csicdnnpredict():
-#     if request.method == 'POST':
-#         body = request.get_data()
-#         requestparams = str(body)
-#     elif request.method == 'GET':
-#         query = request.query_string
-#         requestparams = str(query)
-#     else:
-#         return None
-#     requestparams = requestparams[2:len(requestparams)-1]
-#     character_indexes = tokenizer.texts_to_sequences(requestparams) #get character indexes
-#     character_indexes = [char_index for chars in character_indexes for char_index in chars] #flatten char index array to 1d
-#     data = pad_sequences([character_indexes],maxlen=840,padding='post') #pad char indexes to reach length 840
-#     result = csicdnnmodel(data)#get predictions
-#     benign = result[0][0] #benign probability
-#     malicious = result[0][1] #malicious probability
-#     response = {"benign":float(benign),"malicious":float(malicious)} #response
-#     return jsonify(response)
+@app.route('/csic/dnn/predict',methods=['GET','POST'])
+def csicdnnpredict():
+    if request.method == 'POST':
+        body = request.get_data()
+        requestparams = str(body)
+    elif request.method == 'GET':
+        query = request.query_string
+        requestparams = str(query)
+    else:
+        return None
+    requestparams = requestparams[2:len(requestparams)-1]
+    character_indexes = tokenizer.texts_to_sequences(requestparams) #get character indexes
+    character_indexes = [char_index for chars in character_indexes for char_index in chars] #flatten char index array to 1d
+    data = pad_sequences([character_indexes],maxlen=840,padding='post') #pad char indexes to reach length 840
+    result = csicdnnmodel(data)#get predictions
+    benign = result[0][0] #benign probability
+    malicious = result[0][1] #malicious probability
+    response = {"benign":float(benign),"malicious":float(malicious)} #response
+    return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=5000, debug=True, threaded=True)
+    # app.run(host='0.0.0.0',port=5000, debug=True, threaded=True)
 
     # Serve the app with gevent
-    # http_server = WSGIServer(('0.0.0.0', 5000), app)
-    # http_server.serve_forever()
+    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server.serve_forever()

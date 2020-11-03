@@ -10,26 +10,25 @@
 
 - Clone this repo 
 - Install requirements
+- Download Keras models from google drive
 - Run the script
 - Check http://localhost:5000
 - Done! :tada:
 
-:point_down:Screenshot:
-
-<p align="center">
-  <img src="https://s18.postimg.cc/l01x6fn3d/demo1.png" width="600px" alt="">
-</p>
-
 ------------------
+
+### Download saved Keras Models
+
+For the application to work as intented after cloning this repository head on to 
+https://drive.google.com/folderview?id=1BBkuhpruIORHjWK4VgH7ABD3COVap7E0
+to view and download the keras models to your local computer and place them in the models folder
+### Note
+DO NOT CHANGE THE FILE NAME OF THE FILES AS SEEN ON THE GOOGLE DRIVE FOLDER, PLEASE MAINTAIN THE FILE NAME AS THE
+PROGRAM MAKES USES OF THAT INFORMATION
 
 ### Run the app
 
-Run the script and hide it in background with `tmux` or `screen`.
+Run the script.
 ```
 $ python app.py
-```
-
-You can also use gunicorn instead of gevent
-```
-$ gunicorn -b 127.0.0.1:5000 app:app
 ```
