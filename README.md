@@ -37,7 +37,7 @@ To use the web application there are 3 steps
 - select the dataset at which you want to test on (either csic of ecml)
 - select the model you want to use to get the prediction results (either the ecml trained DNN or ecml trained CNN or csic trained DNN or csic trained CNN)
 - click the `Sample 5 requests` button
--Before running for new sets of data, please reload the web browser
+### Before running for new sets of data, please reload the web browser
 
 ## NOTE WHEN SELECTING MODELS TO USE WHEN PROGRAM IS RUNNING
 ### Ensure the corresponding keras model for the selected model option in the application is downloded and saved in the models folder
