@@ -33,5 +33,6 @@ Run the script.
 $ python app.py
 ```
 ## NOTE WHEN SELECTING MODELS TO USE WHEN PROGRAM IS RUNNING
+### Ensure the coresponding keras model for the selected option in the application is downloded and saved in the models folder
 Please only select the models at which you downloaded the saved keras model for in the web application so as to avoid server errors
-if for example you want to uses the  `ECML DATASEST TRAINED CNN` you must first download the `ecmlcnnkeras.h5` file from the google drive link above and placed the downloaded file (with the filename intact) into the models folder, then you can select the option on the web application.
+if for example you want to use the  `ECML DATASEST TRAINED CNN MODEL` you must first download the `ecmlcnnkeras.h5` file from the google drive link above and place the downloaded file (with the filename intact) into the models folder, then you can select the option in the web application.
